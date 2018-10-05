@@ -1,0 +1,138 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.AddEditArea {
+  width: 600px;
+}
+
+.accordion__title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.AddEditSpecialCard .selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cardSelect {
+  display: block;
+  width: 200px;
+}
+
+.main-form-area {
+  margin-top: 50px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.main-area-left {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-name {
+
+}
+
+.special-card-requirements {
+  padding: 20px 5px;
+}
+
+.main-area-right {
+display: flex;
+justify-content: center;
+flex-grow: 1;
+}
+
+.requirement-select {
+  width: 200px;
+}
+.requirement-action {
+  margin-top: 40px;
+}
+
+.forge-card-req-action {
+  margin-top: 15px;
+}
+
+.form-counter {
+  width: 60px;
+  text-align: center;
+}
+
+.special-card-preview img {
+  height: 330px;
+  width: 270px;
+}
+
+
+input {
+  margin-left: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 7px 10px;
+}
+
+.main-btn {
+  background-color: #D9A460;
+  border: 2px solid;
+  border-color: #CEC3B3;
+  padding: 8px 45px;
+  cursor: pointer;
+}  
+
+.main-btn:active {
+  background-color: #6F634B;
+}
+
+.warn-btn {
+  background-color: #630000;
+  border: 2px solid;
+  border-color: #CEC3B3;
+  color: white;
+  padding: 8px 45px;
+  cursor: pointer;
+
+}
+.action-area {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 25px;
+}
+.action-area button {
+  width: 250px;
+}
