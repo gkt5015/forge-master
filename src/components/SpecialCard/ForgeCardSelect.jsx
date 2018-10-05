@@ -19,10 +19,8 @@ class ForgeCardSelect extends React.Component {
   render() {
     const { store, value, name, className } = this.props;
     const forgeCards = store.forgeCards
-    console.log("value selected, ",  typeof value === 'string', forgeCards);
 
     const forgeCardOptions = createForgeCardOptions(forgeCards);
-    console.log(forgeCardOptions)
     return (
       <div style={{ margin: "1rem 0" }}>
         <label>

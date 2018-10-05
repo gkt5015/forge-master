@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import ImageDrop from "../ImageDrop";
 import { Field, FieldArray } from "formik";
 import ForgeCardSelect from "./ForgeCardSelect";
+import map from 'lodash/map'
 
 const formikEnhancer = withFormik({
   validationSchema: Yup.object().shape({
@@ -69,7 +70,7 @@ const EditSpecialCardForm = props => {
               name="requirements"
               render={arrayHelpers => (
                 <div>
-                  {values.requirements.map((requirement, index) => (
+                  {map(values.requirements, (requirement, index) => (
                     <div key={index}>
                       <ForgeCardSelect
                         name={`requirements.${index}.id`}
