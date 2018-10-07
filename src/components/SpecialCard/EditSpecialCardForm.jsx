@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import ImageDrop from "../ImageDrop";
 import { Field, FieldArray } from "formik";
 import ForgeCardSelect from "./ForgeCardSelect";
-import map from 'lodash/map'
+import map from "lodash/map";
 
 const formikEnhancer = withFormik({
   validationSchema: Yup.object().shape({
@@ -137,21 +137,18 @@ const EditSpecialCardForm = props => {
           {!!values.icon && (
             <div className="picture-area">
               <div className="preview-area special-card-preview">
-                <img
-                  alt="preview"
-                  src={values.icon}
-                />
+                <img alt="preview" src={values.icon} />
               </div>
             </div>
           )}
         </div>
       </div>
       <div className="action-area">
+        <button type="submit" className="submit-btn" disabled={isSubmitting}>
+          SAVE EDITS
+        </button>
         <button type="button" className="warn-btn" onClick={handleCancelEdit}>
           CANCEL
-        </button>
-        <button type="submit" className="main-btn" disabled={isSubmitting}>
-          SAVE EDITS
         </button>
       </div>
     </form>

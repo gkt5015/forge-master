@@ -5,6 +5,10 @@ import ImageDrop from "../ImageDrop";
 import { Field, FieldArray } from "formik";
 import ForgeCardSelect from "./ForgeCardSelect";
 import map from "lodash/map";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
 const formikEnhancer = withFormik({
   validationSchema: Yup.object().shape({
     name: Yup.string().required("name is required!"),
@@ -120,7 +124,7 @@ const AddSpecialCardForm = props => {
                       className="main-btn"
                       onClick={() => arrayHelpers.push({ id: "" })}
                     >
-                      Add Requirement
+                      <FontAwesomeIcon icon={faPlus} /> ADD REQUIREMENT
                     </button>
                   </div>
                 </div>
@@ -144,7 +148,7 @@ const AddSpecialCardForm = props => {
       </div>
 
       <div className="action-area">
-        <button type="submit" className="main-btn" disabled={isSubmitting}>
+        <button type="submit" className="submit-btn" disabled={isSubmitting}>
           CREATE SPECIAL CARD
         </button>
       </div>
