@@ -71,7 +71,7 @@ const AddSpecialCardForm = props => {
                       <ForgeCardSelect
                         name={`requirements.${index}.id`}
                         className="requirement-select"
-                        value={requirement.value}
+                        value={requirement.id}
                         onChange={setFieldValue}
                         onBlur={setFieldTouched}
                         error={errors.topics}

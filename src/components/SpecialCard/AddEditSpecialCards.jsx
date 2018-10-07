@@ -80,7 +80,6 @@ class AddEditSpecialCards extends React.Component {
     const specialCardOptions = createSpecialCardOptions(specialCards);
     const selectedCard = specialCards[selectedCardId];
     const requirements = selectedCard && mobx.toJS(selectedCard.requirements);
-    console.log("HEY", specialCardOptions);
     return (
       <div className="AddEditSpecialCard">
         <div className="selection">
