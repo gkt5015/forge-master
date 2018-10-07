@@ -47,31 +47,49 @@ const EditSpecialCardForm = props => {
     <form onSubmit={handleSubmit}>
       <div className="main-form-area">
         <div className="main-area-left">
-          <div className="card-name">
-            <h4>Special Card Name:</h4>
-            <input
-              placeholder="Enter forge card name"
-              name="name"
-              value={values.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
+          <div className="form-field">
+            <label>1. Special Card Name</label>
+            <div className="form-input">
+              <input
+                placeholder="Enter special card name"
+                name="name"
+                value={values.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.name &&
+                touched.name && (
+                  <div style={{ color: "red", marginTop: ".5rem" }}>
+                    {errors.name}
+                  </div>
+                )}
+            </div>
+          </div>
+          <div className="form-field">
+            <label>2. Upload Image</label>
+            <ImageDrop
+              value={values.icon}
+              onChange={setFieldValue}
+              onBlur={setFieldTouched}
+              error={errors.icon}
+              touched={touched.icon}
             />
-            {errors.name &&
-              touched.name && (
+            {errors.icon &&
+              touched.icon && (
                 <div style={{ color: "red", marginTop: ".5rem" }}>
-                  {errors.name}
+                  {errors.icon}
                 </div>
               )}
           </div>
 
           <div className="special-card-requirements">
-            <h4>Forge Card Requirements:</h4>
+            <label className="title">3. Forge Card Requirements:</label>
             <FieldArray
               name="requirements"
               render={arrayHelpers => (
                 <div>
                   {map(values.requirements, (requirement, index) => (
-                    <div key={index}>
+                    <div key={index} className="form-requirement">
                       <ForgeCardSelect
                         name={`requirements.${index}.id`}
                         className="requirement-select"
@@ -81,18 +99,18 @@ const EditSpecialCardForm = props => {
                         error={errors.topics}
                         touched={touched.topics}
                       />
-                      <label>
-                        How many?
+                      <div className="form-field">
+                        <label>Quantity:</label>
                         <Field
                           type="number"
                           className="form-counter"
                           name={`requirements.${index}.quantity`}
                         />
-                      </label>
+                      </div>
                       <div className="forge-card-req-action">
                         <button
                           type="button"
-                          className='warn-btn'
+                          className="warn-btn"
                           onClick={() => arrayHelpers.remove(index)}
                         >
                           REMOVE REQUIREMENT
@@ -116,21 +134,16 @@ const EditSpecialCardForm = props => {
         </div>
 
         <div className="main-area-right">
-          <ImageDrop
-            currentImage={currentImage}
-            value={values.icon}
-            onChange={setFieldValue}
-            onBlur={setFieldTouched}
-            error={errors.icon}
-            touched={touched.icon}
-            previewClassName='special-card-preview'
-          />
-          {errors.icon &&
-            touched.icon && (
-              <div style={{ color: "red", marginTop: ".5rem" }}>
-                {errors.icon}
+          {!!values.icon && (
+            <div className="picture-area">
+              <div className="preview-area special-card-preview">
+                <img
+                  alt="preview"
+                  src={values.icon}
+                />
               </div>
-            )}
+            </div>
+          )}
         </div>
       </div>
       <div className="action-area">

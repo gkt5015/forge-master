@@ -83,27 +83,12 @@ export default class ImageDrop extends React.Component {
 
     return (
       <div className="image-drop">
-        <ReactDropzone className='main-btn' onDrop={this.onDrop}>
-          Upload New Image
+        <ReactDropzone className='upload-btn' onDrop={this.onDrop}>
+          Add Card Image
         </ReactDropzone>
 
         {uploading && (
           <h2>uploading! {Math.round(this.state.progress)}% complete </h2>
-        )}
-
-        {!!initialPreview &&
-          !file && (
-            <div className={previewClassName}>
-              <img alt="preview" src={initialPreview} />
-            </div>
-          )}
-
-        {!!this.state.file && (
-          <div className={previewClassName}>
-            <h3>Preview</h3>
-
-            <img alt="Preview" key={file.preview} src={file.preview} />
-          </div>
         )}
       </div>
     );

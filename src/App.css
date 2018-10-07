@@ -77,6 +77,8 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  padding: 25px;
+  background-color: #333;
 }
 
 .cardSelect {
@@ -97,11 +99,40 @@
   flex-grow: 1;
 }
 
-.card-name {
+.form-field {
+  display: flex;
+  margin-bottom: 20px;
 }
 
+.form-field label {
+  width: 200px;
+  text-align: right;
+  margin-right: 20px;
+  align-self: center;
+  font-size: 16px;
+}
+
+.form-field input {
+  width: 180px;
+}
+
+.form-input {
+  display:flex;
+  flex-direction: column;
+}
+
+.special-card-requirements .title {
+  font-size: 24px;
+}
 .special-card-requirements {
   padding: 20px 5px;
+  font-size: 14px;
+}
+
+.form-requirement {
+  background-color: #222;
+  padding: 10px 10px;
+  margin-bottom: 10px;
 }
 
 .main-area-right {
@@ -121,7 +152,7 @@
   margin-top: 15px;
 }
 
-.form-counter {
+.form-field .form-counter {
   width: 60px;
   text-align: center;
 }
@@ -196,4 +227,20 @@ input {
 
 .select-container .select-container__single-value {
   color: white;
+}
+
+.image-drop {
+  width: 180px;
+}
+
+.upload-btn {
+  background-color: #d9a460;
+  border: 2px solid;
+  border-color: #cec3b3;
+  padding: 8px 5px;
+  cursor: pointer;
+}
+
+.upload-btn:active {
+  background-color: #6f634b;
 }
