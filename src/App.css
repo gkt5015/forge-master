@@ -73,7 +73,7 @@
   outline: none;
 }
 
-.AddEditSpecialCard .selection {
+.AddEditSpecialCard .selection, .AddEditForgeCard .selection {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -137,8 +137,8 @@
 
 .main-area-right {
   display: flex;
-  justify-content: center;
   flex-grow: 1;
+  padding-left: 15px;
 }
 
 .requirement-select {
@@ -159,8 +159,14 @@
 }
 
 .special-card-preview img {
+  align-self: flex-start;
   height: 330px;
   width: 270px;
+}
+
+.forge-card-preview img {
+  height: 100px;
+  width: 120px;
 }
 
 input {

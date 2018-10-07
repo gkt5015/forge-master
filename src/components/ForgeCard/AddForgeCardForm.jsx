@@ -40,44 +40,54 @@ const AddForgeCardForm = props => {
     <form onSubmit={handleSubmit}>
       <div className="main-form-area">
         <div className="main-area-left">
-          <div className="card-name">
-            <h4>Forge Card Name:</h4>
-
-            <input
-              id="name"
-              placeholder="Enter forge card name"
-              type="name"
-              value={values.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
+          <div className="form-field">
+            <label>1. Forge Card Name</label>
+            <div className="form-input">
+              <input
+                placeholder="Enter forge card name"
+                name="name"
+                value={values.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.name &&
+                touched.name && (
+                  <div style={{ color: "red", marginTop: ".5rem" }}>
+                    {errors.name}
+                  </div>
+                )}
+            </div>
+          </div>
+          <div className="form-field">
+            <label>2. Upload Image</label>
+            <ImageDrop
+              value={values.icon}
+              onChange={setFieldValue}
+              onBlur={setFieldTouched}
+              error={errors.icon}
+              touched={touched.icon}
             />
-
-            {errors.name &&
-              touched.name && (
+            {errors.icon &&
+              touched.icon && (
                 <div style={{ color: "red", marginTop: ".5rem" }}>
-                  {errors.name}
+                  {errors.icon}
                 </div>
               )}
           </div>
         </div>
         <div className="main-area-right">
-          <ImageDrop
-            value={values.icon}
-            onChange={setFieldValue}
-            onBlur={setFieldTouched}
-            error={errors.icon}
-            touched={touched.icon}
-          />
-          {errors.icon &&
-            touched.icon && (
-              <div style={{ color: "red", marginTop: ".5rem" }}>
-                {errors.icon}
+          {!!values.icon && (
+            <div className="picture-area">
+              <div className="preview-area forge-card-preview">
+                <img alt="preview" src={values.icon} />
               </div>
-            )}
+            </div>
+          )}
         </div>
       </div>
+
       <div className="action-area">
-        <button type="submit"  className='main-btn' disabled={isSubmitting}>
+        <button type="submit" className="submit-btn" disabled={isSubmitting}>
           CREATE FORGE CARD
         </button>
       </div>
