@@ -36,10 +36,11 @@
   }
 }
 
-.panel {
+.accordion__item {
   background-color: #13100b;
   color: #ffffec;
   opacity: 0.9;
+  width: 800px;
 
   border: 5px solid;
   border-color: #6f634b;
@@ -47,21 +48,28 @@
 }
 
 .AddEditArea {
-  width: 600px;
-  background-color: #13100b;
-  color: #ffffec;
-  opacity: 0.9;
 
-  border: 5px solid;
-  border-color: #6f634b;
-  border-radius: 2px;
-  font-weight: 300;
 }
 
-.accordion__title {
+.accordion .accordion__title {
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+}
+
+.accordion .accordion__title:hover {
+  background-color: #333;
+}
+
+.accordion .accordion__title:focus {
+  outline: none;
 }
 
 .AddEditSpecialCard .selection {

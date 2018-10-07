@@ -9,7 +9,7 @@ import {
 import "react-accessible-accordion/dist/fancy-example.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import AddEditForgeCards from './ForgeCard/AddEditForgeCards'
 import AddEditSpecialCards from './SpecialCard/AddEditSpecialCards'
 
@@ -21,8 +21,7 @@ class AddEditArea extends React.Component {
         <Accordion>
           <AccordionItem>
             <AccordionItemTitle hideBodyClassName="show-accordion">
-              <FontAwesomeIcon icon={faPlusSquare} />
-              <h2>Add/Edit Forge Card</h2>
+              <h2><FontAwesomeIcon icon={faPlus} /> Add/Edit Forge Card</h2>
             </AccordionItemTitle>
             <AccordionItemBody>
               <AddEditForgeCards />
@@ -32,8 +31,7 @@ class AddEditArea extends React.Component {
         <Accordion>
           <AccordionItem>
             <AccordionItemTitle>
-              <FontAwesomeIcon icon={faPlusSquare} />
-              <h2>Add/Edit Special Card</h2>
+              <h2><FontAwesomeIcon icon={faPlus} /> Add/Edit Special Card</h2>
             </AccordionItemTitle>
             <AccordionItemBody>
               <AddEditSpecialCards />
