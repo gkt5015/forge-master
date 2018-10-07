@@ -47,21 +47,22 @@
   border-radius: 2px;
 }
 
-.AddEditArea {
-
+.accordion-title {
+  font-size: 28px;
 }
 
 .accordion .accordion__title {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    background-color: inherit;
-    color: inherit;
+  padding: 30px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background-color: inherit;
+  color: inherit;
 }
 
 .accordion .accordion__title:hover {
