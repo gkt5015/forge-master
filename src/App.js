@@ -19,7 +19,7 @@ class App extends Component {
 
     return (
       <Provider store={this.ds}>
-        <div className="App">
+        <div className="App container">
         <AddEditArea />
         <ForgeMatrix />
         </div>

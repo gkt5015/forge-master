@@ -22,7 +22,7 @@ class AddEditArea extends React.Component {
           <AccordionItem>
             <AccordionItemTitle hideBodyClassName="show-accordion">
               <FontAwesomeIcon icon={faPlusSquare} />
-              Add/Edit Forge Card
+              <h2>Add/Edit Forge Card</h2>
             </AccordionItemTitle>
             <AccordionItemBody>
               <AddEditForgeCards />
@@ -33,7 +33,7 @@ class AddEditArea extends React.Component {
           <AccordionItem>
             <AccordionItemTitle>
               <FontAwesomeIcon icon={faPlusSquare} />
-              Add/Edit Special Card
+              <h2>Add/Edit Special Card</h2>
             </AccordionItemTitle>
             <AccordionItemBody>
               <AddEditSpecialCards />

@@ -27,7 +27,8 @@ class ForgeCardSelect extends React.Component {
           Forge Card
           <Select
             name={name}
-            className={className}
+            className={'select-container ' + className}
+            classNamePrefix={'select-container'}
             value={forgeCardOptions ? forgeCardOptions.find(option => option.value === value) : ''}
             options={forgeCardOptions}
             onChange={this.handleChange}

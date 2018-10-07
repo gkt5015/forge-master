@@ -117,8 +117,8 @@ class ForgeMatrix extends React.Component {
       <div
         className="ag-theme-dark"
         style={{
-          height: "500px",
-          width: "600px"
+          width: "900px",
+          height: '900px'
         }}
       >
         <AgGridReact columnDefs={columns} rowData={rowData} />

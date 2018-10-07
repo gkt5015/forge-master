@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 }
 
 .App-logo {
@@ -23,13 +28,34 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
+.panel {
+  background-color: #13100b;
+  color: #ffffec;
+  opacity: 0.9;
+
+  border: 5px solid;
+  border-color: #6f634b;
+  border-radius: 2px;
+}
 
 .AddEditArea {
   width: 600px;
+  background-color: #13100b;
+  color: #ffffec;
+  opacity: 0.9;
+
+  border: 5px solid;
+  border-color: #6f634b;
+  border-radius: 2px;
+  font-weight: 300;
 }
 
 .accordion__title {
@@ -37,7 +63,6 @@
   flex-direction: row;
   align-items: center;
 }
-
 
 .AddEditSpecialCard .selection {
   display: flex;
@@ -52,9 +77,9 @@
 
 .main-form-area {
   margin-top: 50px;
-display: flex;
-flex-direction: row;
-justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .main-area-left {
@@ -64,7 +89,6 @@ justify-content: center;
 }
 
 .card-name {
-
 }
 
 .special-card-requirements {
@@ -72,9 +96,9 @@ justify-content: center;
 }
 
 .main-area-right {
-display: flex;
-justify-content: center;
-flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .requirement-select {
@@ -98,34 +122,33 @@ flex-grow: 1;
   width: 270px;
 }
 
-
 input {
   margin-left: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border: none;
+  background-color: #4a4a4a;
   padding: 7px 10px;
+  border: 1px solid #ccc;
 }
 
 .main-btn {
-  background-color: #D9A460;
+  background-color: #d9a460;
   border: 2px solid;
-  border-color: #CEC3B3;
+  border-color: #cec3b3;
   padding: 8px 45px;
   cursor: pointer;
-}  
+}
 
 .main-btn:active {
-  background-color: #6F634B;
+  background-color: #6f634b;
 }
 
 .warn-btn {
   background-color: #630000;
   border: 2px solid;
-  border-color: #CEC3B3;
+  border-color: #cec3b3;
   color: white;
   padding: 8px 45px;
   cursor: pointer;
-
 }
 .action-area {
   display: flex;
@@ -135,4 +158,33 @@ input {
 }
 .action-area button {
   width: 250px;
+}
+
+.select-container {
+  font-weight: 300;
+}
+.select-container .select-container__control {
+  background-color: #4a4a4a;
+  color: white;
+  cursor: pointer;
+}
+
+.select-container .select-container__menu {
+  background-color: #4a4a4a;
+  color: white;
+  cursor: pointer;
+}
+
+.select-container .select-container__option {
+  background-color: #4a4a4a;
+  color: white;
+  cursor: pointer;
+}
+
+.select-container .select-container__option--is-focused {
+  background-color: #777;
+}
+
+.select-container .select-container__single-value {
+  color: white;
 }

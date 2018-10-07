@@ -86,7 +86,8 @@ class AddEditSpecialCards extends React.Component {
         <div className="selection">
           <h3>Select card to edit: </h3>
           <Select
-          className='cardSelect'
+            className='select-container cardSelect'
+            classNamePrefix={'select-container'}
             value={selectedOption}
             onChange={this.handleSelectCard}
             options={specialCardOptions}

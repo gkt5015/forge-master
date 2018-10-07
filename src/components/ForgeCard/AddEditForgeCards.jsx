@@ -84,6 +84,8 @@ class AddEditForgeCards extends React.Component {
           value={selectedOption}
           onChange={this.handleSelectCard}
           options={forgeCardOptions}
+          className={'select-container '}
+          classNamePrefix={'select-container'}
         />
         {!isEditing && 
           <AddForgeCardForm 
