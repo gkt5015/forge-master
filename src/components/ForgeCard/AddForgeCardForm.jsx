@@ -12,13 +12,17 @@ const formikEnhancer = withFormik({
     name: "",
     icon: ""
   }),
-  handleSubmit: (values, { setSubmitting, props }) => {
+  handleSubmit: (values, { setSubmitting, props, resetForm, setValues }) => {
     const payload = {
       ...values
     };
 
-    props.handleAddForgeCard(payload);
-    setSubmitting(false);
+    props.handleAddForgeCard(payload).then(() => {
+      setSubmitting(false);
+      resetForm({});
+      setValues({ name: ''})
+
+    });
   }
 });
 

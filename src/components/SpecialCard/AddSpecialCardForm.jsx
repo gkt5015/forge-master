@@ -19,13 +19,16 @@ const formikEnhancer = withFormik({
     icon: "",
     requirements: []
   }),
-  handleSubmit: (values, { setSubmitting, props }) => {
+  handleSubmit: (values, { setSubmitting, props, resetForm, setValues }) => {
     const payload = {
       ...values
     };
 
-    props.handleAddSpecialCard(payload);
-    setSubmitting(false);
+    props.handleAddSpecialCard(payload).then(() => {
+      setSubmitting(false);
+      resetForm({});
+      setValues({ name: "" });
+    });
   }
 });
 
@@ -137,10 +140,7 @@ const AddSpecialCardForm = props => {
           {!!values.icon && (
             <div className="picture-area">
               <div className="preview-area special-card-preview">
-                <img
-                  alt="preview"
-                  src={values.icon}
-                />
+                <img alt="preview" src={values.icon} />
               </div>
             </div>
           )}

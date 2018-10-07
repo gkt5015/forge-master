@@ -47,10 +47,12 @@ class AddEditForgeCards extends React.Component {
     const newForgeCard = { [newId]: { name, icon } };
     const newForgeCards = merge({}, forgeCards, newForgeCard);
 
-    addForgeCard({ name, icon });
-
     this.setState({
       forgeCards: newForgeCards
+    });
+
+    return addForgeCard({ name, icon }).then(() => {
+      alert(`Added forge card ${name}`);
     });
   };
 
@@ -60,12 +62,15 @@ class AddEditForgeCards extends React.Component {
     const editedForgeCard = { [id]: { name, icon } };
 
     const editedForgeCards = merge({}, forgeCards, editedForgeCard);
-    const editedSelectedOption = { value: id, label: name };
 
-    editForgeCard({ id, name, icon });
     this.setState({
       forgeCards: editedForgeCards,
-      selectedOption: editedSelectedOption
+      selectedOption: "",
+      isEditing: false
+    });
+
+    return editForgeCard({ id, name, icon }).then(() => {
+      alert(`Edited forge card ${name}`);
     });
   };
 

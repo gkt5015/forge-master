@@ -5,10 +5,10 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-dark.css";
 import mobx from "mobx";
 import { observer, inject } from "mobx-react";
-import get from 'lodash/get'
-import forEach from 'lodash'
-import find from 'lodash/find'
-import forOwn from 'lodash/forOwn'
+import get from "lodash/get";
+import forEach from "lodash";
+import find from "lodash/find";
+import forOwn from "lodash/forOwn";
 
 const COLS = [
   "aasdfasd",
@@ -62,42 +62,47 @@ const rows = COLS.map((col, i) => {
 });
 
 const createSpecialCardColumns = specialCards => {
-    const headerColumn = {headerName: 'Forge cards', field: 'forgeCardName',
-    pinned: "left"}
-    const specialCardColumns = map(specialCards, (specialCard, i) => {
-        const { id, name } = specialCard;
-        return {
-          headerName: name,
-          field: id,
-          editable: true,
-        };
-      })
-    
-  return [headerColumn, ...specialCardColumns]
+  const headerColumn = {
+    headerName: "Forge cards",
+    field: "forgeCardName",
+    pinned: "left"
+  };
+  const specialCardColumns = map(specialCards, (specialCard, i) => {
+    const { id, name } = specialCard;
+    return {
+      headerName: name,
+      field: id,
+      editable: true
+    };
+  });
+
+  return [headerColumn, ...specialCardColumns];
 };
 
 const createForgeCardRows = (specialCards, forgeCards) => {
-    return map(forgeCards, forgeCard => {
-        const { id: forgeCardId, name: forgeCardName } = forgeCard;
-        const forgeCardNameCell = {
-            forgeCardName
-        }
-        const forgeCardMapping = {...forgeCardNameCell}
-        console.log('CHECKING OUT SPEC CARDS', specialCards)
-        forOwn(specialCards, specialCard => {
-            console.count('specialCards')
-            const { id: specialCardId, name: specialCardName, requirements } = specialCard;
-            const requiredForgeCardCount = get(find(requirements, req => req.id === forgeCardId), 'quantity', 0)
-            forgeCardMapping[specialCardId] = requiredForgeCardCount
-            console.log('RESULT UP HERE', forgeCardMapping)
+  return map(forgeCards, forgeCard => {
+    const { id: forgeCardId, name: forgeCardName } = forgeCard;
+    const forgeCardNameCell = {
+      forgeCardName
+    };
+    const forgeCardMapping = { ...forgeCardNameCell };
+    forOwn(specialCards, specialCard => {
+      const {
+        id: specialCardId,
+        name: specialCardName,
+        requirements
+      } = specialCard;
+      const requiredForgeCardCount = get(
+        find(requirements, req => req.id === forgeCardId),
+        "quantity",
+        0
+      );
+      forgeCardMapping[specialCardId] = requiredForgeCardCount;
+    });
 
-        })
-
-        console.log('RESULT', forgeCardMapping)
-
-        return forgeCardMapping
-    })
-}
+    return forgeCardMapping;
+  });
+};
 class ForgeMatrix extends React.Component {
   constructor() {
     super();
@@ -110,15 +115,17 @@ class ForgeMatrix extends React.Component {
 
   render() {
     const { forgeCards, specialCards } = this.props.store;
-    const columns = createSpecialCardColumns( mobx.toJS(specialCards));
-    const rowData = createForgeCardRows( mobx.toJS(specialCards),  mobx.toJS(forgeCards))
-    console.log('ROWDATA', rowData)
+    const columns = createSpecialCardColumns(mobx.toJS(specialCards));
+    const rowData = createForgeCardRows(
+      mobx.toJS(specialCards),
+      mobx.toJS(forgeCards)
+    );
     return (
       <div
         className="ag-theme-dark"
         style={{
-          width: "900px",
-          height: '900px'
+          width: "1000px",
+          height: "600px"
         }}
       >
         <AgGridReact columnDefs={columns} rowData={rowData} />

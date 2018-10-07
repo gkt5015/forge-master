@@ -14,12 +14,15 @@ const formikEnhancer = withFormik({
     id: props.id
   }),
   enableReinitialize: true,
-  handleSubmit: (values, { setSubmitting, props }) => {
+  handleSubmit: (values, { setSubmitting, props, resetForm, setValues }) => {
     const payload = {
       ...values
     };
-    props.handleEditForgeCard(payload);
-    setSubmitting(false);
+
+    props.handleEditForgeCard(payload).then(() => {
+      setSubmitting(false);
+      resetForm({});
+    });
   }
 });
 

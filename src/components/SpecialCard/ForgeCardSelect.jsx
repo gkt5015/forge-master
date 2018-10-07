@@ -6,7 +6,6 @@ import { observer, inject } from "mobx-react";
 class ForgeCardSelect extends React.Component {
   handleChange = card => {
     // this is going to call setFieldValue and manually update values.topcis
-    console.log("changing with value", card);
     this.props.onChange(this.props.name, card.value);
   };
 

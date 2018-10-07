@@ -31,7 +31,6 @@ class AddEditSpecialCards extends React.Component {
 
   handleSelectCard = selectedOption => {
     const { value } = selectedOption;
-    console.log("SELECTED", selectedOption);
     this.setState({
       selectedCardId: value,
       selectedOption,
@@ -40,35 +39,39 @@ class AddEditSpecialCards extends React.Component {
   };
 
   handleAddSpecialCard = specialCard => {
-    debugger;
     const { specialCards } = this.state;
-    // doFirbase().then(result => { newSpecialCard = { id: result.id, etc } newSpecialCards = {...this.state.specialCards, newSpecialCard})
     const specialCardCount = get(keys(specialCards), "length", 0);
     const newId = specialCardCount + 1;
     const { name, icon, requirements } = specialCard;
     const newSpecialCard = { [newId]: { name, icon, requirements } };
     const newSpecialCards = merge({}, specialCards, newSpecialCard);
 
-    addSpecialCard({ name, icon, requirements });
-
     this.setState({
       specialCards: newSpecialCards
+    });
+
+    return addSpecialCard({ name, icon, requirements }).then(() => {
+      alert(`Added special card ${name}`);
     });
   };
 
   handleEditSpecialCard = specialCard => {
-    debugger;
     const { specialCards } = this.state;
     const { id, name, icon, requirements } = specialCard;
     const editedSpecialCard = { [id]: { name, icon, requirements } };
 
     const editedSpecialCards = merge({}, specialCards, editedSpecialCard);
-    const editedSelectedOption = { value: id, label: name };
 
-    editSpecialCard({ id, name, icon, requirements });
     this.setState({
       specialCards: editedSpecialCards,
-      selectedOption: editedSelectedOption
+      selectedOption: '',
+    });
+
+    return editSpecialCard({ id, name, icon, requirements }).then(() => {
+      alert(`Edited special card ${name}`);
+      this.setState({
+        isEditing: false
+      })
     });
   };
 
@@ -85,8 +88,8 @@ class AddEditSpecialCards extends React.Component {
         <div className="selection">
           <h3>Select card to edit: </h3>
           <Select
-            className='select-container cardSelect'
-            classNamePrefix={'select-container'}
+            className="select-container cardSelect"
+            classNamePrefix={"select-container"}
             value={selectedOption}
             onChange={this.handleSelectCard}
             options={specialCardOptions}
