@@ -20,6 +20,10 @@ class App extends Component {
     return (
       <Provider store={this.ds}>
         <div className="App container">
+        <div className='main-title'>
+          The Forge Master
+        </div>
+
         <AddEditArea />
         <ForgeMatrix />
         </div>

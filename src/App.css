@@ -7,6 +7,16 @@
   font-size: 14px;
 }
 
+.main-title {
+  font-family: 'Cinzel', serif;
+  font-size: 64px;
+  background-color: #13100b;
+  color: #fff;
+  opacity: 0.9;
+width: 100vw;
+  margin-bottom: 15px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -27,13 +37,11 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.AddEditArea {
+}
+
+.AddEditArea .accordion {
+  margin-bottom: 20px;
 }
 
 .accordion__item {
@@ -48,7 +56,7 @@
 }
 
 .accordion-title {
-  font-size: 28px;
+  font-size: 27px;
 }
 
 .accordion .accordion__title {
@@ -57,12 +65,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 30px;
+  padding: 17px;
   width: 100%;
   text-align: left;
   border: none;
   background-color: inherit;
   color: inherit;
+  font-weight: 300;
 }
 
 .accordion .accordion__title:hover {
