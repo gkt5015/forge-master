@@ -1,63 +1,57 @@
-import firebase from '../api/firebase.js'
-import forOwn from 'lodash/forOwn'
-import keyBy from 'lodash/keyBy'
+import firebase from "../api/firebase.js";
+import forOwn from "lodash/forOwn";
+import keyBy from "lodash/keyBy";
+import sortBy from "lodash/sortBy";
 
 export default class controller {
-    constructor(ds) {
-        this.ds = ds
-        this.init()
+  constructor(ds) {
+    this.ds = ds;
+    this.init();
 
-        window.ds=this.ds // helps with debugging. bad idea, otherwise
-    }
+    window.ds = this.ds; // helps with debugging. bad idea, otherwise
+  }
 
-    init() {
-        const specialCardsRef = firebase.database().ref('specialCards');
-            
-        specialCardsRef.on('value', (snapshot) => {
-            let specialCardsRaw = snapshot.val();
+  init() {
+    const specialCardsRef = firebase.database().ref("specialCards");
 
-            const specialCardsArray = []
-            forOwn(specialCardsRaw, (specialCard, specialCardId) => {
-                const { 
-                    name,
-                    icon,
-                    requirements
-                } = specialCard
+    specialCardsRef.on("value", snapshot => {
+      let specialCardsRaw = snapshot.val();
 
-                specialCardsArray.push({
-                    id: specialCardId,
-                    name,
-                    icon,
-                    requirements
-                })
-            })
-            
-            const specialCards = keyBy(specialCardsArray, 'id')
-            this.ds.specialCards = specialCards
+      const specialCardsArray = [];
+      forOwn(specialCardsRaw, (specialCard, specialCardId) => {
+        const { name, icon, requirements } = specialCard;
+
+        specialCardsArray.push({
+          id: specialCardId,
+          name,
+          icon,
+          requirements
         });
+      });
 
-        const forgeCardsRef = firebase.database().ref('forgeCards');
-            
-        forgeCardsRef.on('value', (snapshot) => {
-            let forgeCardsRaw = snapshot.val();
+      const sortedCards = sortBy(specialCardsArray, card => card.name);
+      const specialCards = keyBy(sortedCards, "id");
+      this.ds.specialCards = specialCards;
+    });
 
-            const forgeCardsArray = []
-            forOwn(forgeCardsRaw, (forgeCard, forgeCardId) => {
-                const { 
-                    name,
-                    icon,
-                } = forgeCard
+    const forgeCardsRef = firebase.database().ref("forgeCards");
 
-                forgeCardsArray.push({
-                    id: forgeCardId,
-                    name,
-                    icon,
-                })
-            })
-            
-            const forgeCards = keyBy(forgeCardsArray, 'id')
-            this.ds.forgeCards = forgeCards
+    forgeCardsRef.on("value", snapshot => {
+      let forgeCardsRaw = snapshot.val();
+
+      const forgeCardsArray = [];
+      forOwn(forgeCardsRaw, (forgeCard, forgeCardId) => {
+        const { name, icon } = forgeCard;
+
+        forgeCardsArray.push({
+          id: forgeCardId,
+          name,
+          icon
         });
-    }
-
+      });
+      const sortedCards = sortBy(forgeCardsArray, card => card.name);
+      const forgeCards = keyBy(sortedCards, "id");
+      this.ds.forgeCards = forgeCards;
+    });
+  }
 }

@@ -6,60 +6,8 @@ import "ag-grid-community/dist/styles/ag-theme-dark.css";
 import mobx from "mobx";
 import { observer, inject } from "mobx-react";
 import get from "lodash/get";
-import forEach from "lodash";
 import find from "lodash/find";
 import forOwn from "lodash/forOwn";
-
-const COLS = [
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd",
-  "aasdfasd"
-];
-const columns = COLS.map((col, i) => {
-  const str = col + i;
-  const pinned = i === 0 ? { pinned: "left" } : {};
-  return {
-    headerName: str,
-    field: str,
-    editable: true,
-    ...pinned
-  };
-});
-
-const rows = COLS.map((col, i) => {
-  const str = col + i;
-
-  return {
-    [str]: str
-  };
-});
 
 const createSpecialCardColumns = specialCards => {
   const headerColumn = {
@@ -104,15 +52,6 @@ const createForgeCardRows = (specialCards, forgeCards) => {
   });
 };
 class ForgeMatrix extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      columnDefs: columns,
-      rowData: rows
-    };
-  }
-
   render() {
     const { forgeCards, specialCards } = this.props.store;
     const columns = createSpecialCardColumns(mobx.toJS(specialCards));
