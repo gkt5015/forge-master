@@ -1,11 +1,11 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 var config = {
-    apiKey: "AIzaSyCz4jRa7Lw8SvRdBWefJIKDBfZTKsrlm_4",
-    authDomain: "master-forge.firebaseapp.com",
-    databaseURL: "https://master-forge.firebaseio.com",
-    projectId: "master-forge",
-    storageBucket: "master-forge.appspot.com",
-    messagingSenderId: "771858033325"
-  };
-  firebase.initializeApp(config);
+    apiKey: 'AIzaSyDzP5LlreqGk78oafG8YUvidNUFCQ1E2-A',
+    authDomain: 'forge-master-dev.firebaseapp.com',
+    databaseURL: 'https://forge-master-dev.firebaseio.com',
+    projectId: 'forge-master-dev',
+    storageBucket: 'forge-master-dev.appspot.com',
+    messagingSenderId: '497294960484'
+};
+firebase.initializeApp(config);
 export default firebase;
