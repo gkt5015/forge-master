@@ -37,7 +37,7 @@ const formEnhancer = withFormik({
     }
 });
 
-const Register = props => {
+const LoginForm = props => {
     const {
         toggleRegisterLogin,
         values,
@@ -50,7 +50,7 @@ const Register = props => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <h1 className="login-form-title">REGISTRATION FORM</h1>
+                <h1 className="login-form-title">LOG-IN FORM</h1>
                 <input
                     className="login-email"
                     placeholder="E-mail"
@@ -67,24 +67,22 @@ const Register = props => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                 />
-                {errors && (
-                    <div className="error-message">{errors.message}</div>
-                )}
+                {errors && <div>{errors.message}</div>}
                 <div className="action-area">
                     <button
                         type="submit"
                         className="submit-btn register-button"
                         disabled={isSubmitting}
                     >
-                        REGISTER
+                        LOG-IN
                     </button>
                 </div>
             </form>
             <p className="login-reg-toggler" onClick={toggleRegisterLogin}>
-                Already have a login? Click here
+                Don't have an account? Click here to register
             </p>
         </div>
     );
 };
 
-export default inject('store')(observer(formEnhancer(Register)));
+export default inject('store')(observer(formEnhancer(LoginForm)));

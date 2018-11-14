@@ -1,6 +1,7 @@
 import React from 'react';
-import Login from './Login';
+import LoginForm from './LoginForm';
 import Register from './Register';
+import { observer, inject } from 'mobx-react';
 
 class LoginSignUpForm extends React.Component {
     constructor(props) {
@@ -23,10 +24,13 @@ class LoginSignUpForm extends React.Component {
     };
 
     render() {
+        if (this.props.store.user) {
+            return null;
+        }
         return (
-            <div>
+            <div className="login-sign-form">
                 {this.state.login ? (
-                    <Login toggleRegisterLogin={this.toggleRegisterLogin} />
+                    <LoginForm toggleRegisterLogin={this.toggleRegisterLogin} />
                 ) : (
                     <Register
                         controller={this.controller}
@@ -38,4 +42,4 @@ class LoginSignUpForm extends React.Component {
     }
 }
 
-export default LoginSignUpForm;
+export default inject('store')(observer(LoginSignUpForm));

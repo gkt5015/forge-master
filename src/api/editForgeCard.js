@@ -1,7 +1,9 @@
 import firebase from './firebase.js';
 
-const editForgeCard = forgeCard => {
-    const forgeCardRef = firebase.database().ref('forgeCards');
+const editForgeCard = (forgeCard, user) => {
+    const forgeCardRef = firebase
+        .database()
+        .ref(`users/${user.uid}/forgeCards`);
     const updates = {
         [forgeCard.id]: forgeCard
     };

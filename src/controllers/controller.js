@@ -12,7 +12,10 @@ export default class controller {
     }
 
     downloadSpecialCards = user => {
-        const specialCardsRef = firebase.database().ref('specialCards');
+        const { uid } = user;
+        const specialCardsRef = firebase
+            .database()
+            .ref(`users/${uid}/specialCards`);
 
         specialCardsRef.on('value', snapshot => {
             let specialCardsRaw = snapshot.val();
@@ -31,12 +34,15 @@ export default class controller {
 
             const sortedCards = sortBy(specialCardsArray, card => card.name);
             const specialCards = keyBy(sortedCards, 'id');
-            this.ds.specialCards = specialCards;
+            this.ds.setSpecialCards(specialCards, specialCardsRef);
         });
     };
 
     downloadForgeCards = user => {
-        const forgeCardsRef = firebase.database().ref('forgeCards');
+        const { uid } = user;
+        const forgeCardsRef = firebase
+            .database()
+            .ref(`users/${uid}/forgeCards`);
 
         forgeCardsRef.on('value', snapshot => {
             let forgeCardsRaw = snapshot.val();
@@ -53,15 +59,43 @@ export default class controller {
             });
             const sortedCards = sortBy(forgeCardsArray, card => card.name);
             const forgeCards = keyBy(sortedCards, 'id');
-            this.ds.forgeCards = forgeCards;
+            console.log(forgeCardsRef, ' is reference');
+            this.ds.setForgeCards(forgeCards, forgeCardsRef);
         });
     };
 
     handleRegister = payload => {
         console.log('call register API');
         return new Promise((resolve, reject) => {
-            const user = { name: 'Gah' };
-            resolve(user);
+            if (Math.random() > 0.99) {
+                const user = { name: 'Gah', uid: payload.email.split('@')[0] };
+                resolve(user);
+            } else {
+                reject(new Error('Failed to Register'));
+            }
+        });
+    };
+
+    handleLogin = user => {
+        console.log('call register API');
+        return new Promise((resolve, reject) => {
+            if (Math.random() > 0.1) {
+                const user = { name: 'Gah' };
+                resolve(user);
+            } else {
+                reject(new Error('Failed to Register'));
+            }
+        });
+    };
+
+    handleLogout = () => {
+        console.log('call logout API');
+        return new Promise((resolve, reject) => {
+            if (Math.random() > 0.1) {
+                this.ds.toggleLogout();
+            } else {
+                reject(new Error('Failed to Logout'));
+            }
         });
     };
 

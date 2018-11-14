@@ -1,276 +1,323 @@
 .App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
 }
 
 .main-title {
-  font-family: 'Cinzel', serif;
-  font-size: 64px;
-  background-color: #13100b;
-  color: #fff;
-  opacity: 0.9;
-width: 99vw;
-padding: 15px;
-  margin-bottom: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 64px;
+    background-color: #13100b;
+    color: #fff;
+    opacity: 0.9;
+    width: 99vw;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 .AddEditArea {
 }
 
 .AddEditArea .accordion {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .accordion__item {
-  background-color: #13100b;
-  color: #ffffec;
-  opacity: 0.9;
-  width: 800px;
+    background-color: #13100b;
+    color: #ffffec;
+    opacity: 0.9;
+    width: 800px;
 
-  border: 5px solid;
-  border-color: #6f634b;
-  border-radius: 2px;
+    border: 5px solid;
+    border-color: #6f634b;
+    border-radius: 2px;
 }
 
 .accordion-title {
-  font-size: 27px;
+    font-size: 27px;
 }
 
 .accordion .accordion__title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 17px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  background-color: inherit;
-  color: inherit;
-  font-weight: 300;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 17px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    font-weight: 300;
 }
 
 .accordion .accordion__title:hover {
-  background-color: #333;
+    background-color: #333;
 }
 
 .accordion .accordion__title:focus {
-  outline: none;
+    outline: none;
 }
 
-.AddEditSpecialCard .selection, .AddEditForgeCard .selection {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 25px;
-  background-color: #333;
+.AddEditSpecialCard .selection,
+.AddEditForgeCard .selection {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 25px;
+    background-color: #333;
 }
 
 .cardSelect {
-  display: block;
-  width: 200px;
+    display: block;
+    width: 200px;
 }
 
 .main-form-area {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .main-area-left {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .form-field {
-  display: flex;
-  margin-bottom: 20px;
+    display: flex;
+    margin-bottom: 20px;
 }
 
 .form-field label {
-  width: 200px;
-  text-align: right;
-  margin-right: 20px;
-  align-self: center;
-  font-size: 16px;
+    width: 200px;
+    text-align: right;
+    margin-right: 20px;
+    align-self: center;
+    font-size: 16px;
 }
 
 .form-field input {
-  width: 180px;
+    width: 180px;
 }
 
 .form-input {
-  display:flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .special-card-requirements .title {
-  font-size: 24px;
+    font-size: 24px;
 }
 .special-card-requirements {
-  padding: 20px 5px;
-  font-size: 14px;
+    padding: 20px 5px;
+    font-size: 14px;
 }
 
 .form-requirement {
-  background-color: #222;
-  padding: 10px 10px;
-  margin-bottom: 10px;
+    background-color: #222;
+    padding: 10px 10px;
+    margin-bottom: 10px;
 }
 
 .main-area-right {
-  display: flex;
-  flex-grow: 1;
-  padding-left: 15px;
+    display: flex;
+    flex-grow: 1;
+    padding-left: 15px;
 }
 
 .requirement-select {
-  width: 200px;
+    width: 200px;
 }
 .requirement-action {
-  margin-top: 20px;
-
+    margin-top: 20px;
 }
 
 .forge-card-req-action {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .form-field .form-counter {
-  width: 60px;
-  text-align: center;
+    width: 60px;
+    text-align: center;
 }
 
 .special-card-preview img {
-  align-self: flex-start;
-  height: 330px;
-  width: 270px;
+    align-self: flex-start;
+    height: 330px;
+    width: 270px;
 }
 
 .forge-card-preview img {
-  height: 100px;
-  width: 120px;
+    height: 100px;
+    width: 120px;
+}
+
+.login-sign-form {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    background-color: #13100b;
+    color: #fff;
+    opacity: 0.9;
+    width: 500px;
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
 input {
-  margin-left: 15px;
-  border: none;
-  background-color: #4a4a4a;
-  padding: 7px 10px;
-  border: 1px solid #ccc;
+    margin-left: 15px;
+    border: none;
+    background-color: #4a4a4a;
+    padding: 7px 10px;
+    border: 1px solid #ccc;
 }
 
 .main-btn {
-  background-color: #d9a460;
-  border: 2px solid;
-  border-color: #cec3b3;
-  padding: 8px 45px;
-  cursor: pointer;
+    background-color: #d9a460;
+    border: 2px solid;
+    border-color: #cec3b3;
+    padding: 8px 45px;
+    cursor: pointer;
 }
 
 .main-btn:active {
-  background-color: #6f634b;
+    background-color: #6f634b;
 }
 
 .warn-btn {
-  background-color: #630000;
-  border: 2px solid;
-  border-color: #cec3b3;
-  color: white;
-  padding: 8px 45px;
-  cursor: pointer;
+    background-color: #630000;
+    border: 2px solid;
+    border-color: #cec3b3;
+    color: white;
+    padding: 8px 45px;
+    cursor: pointer;
 }
 
 .submit-btn {
-  background-color: green;
-  border: 2px solid;
-  border-color: #cec3b3;
-  padding: 8px 45px;
-  cursor: pointer;
+    background-color: green;
+    border: 2px solid;
+    border-color: #cec3b3;
+    padding: 8px 45px;
+    cursor: pointer;
 }
 
 .submit-btn:active {
-  background-color: #6f634b;
+    background-color: #6f634b;
 }
 .action-area {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 25px;
 }
 .action-area button {
-  width: 250px;
-  padding: 15px;
+    width: 250px;
+    padding: 15px;
+}
+
+.submit-btn.register-button {
+    width: 180px;
+    padding: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.login-email {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.login-password {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.login-form-title {
+    font-size: 30px;
+}
+
+.login-reg-toggler {
+    padding-top: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .select-container {
-  font-weight: 300;
+    font-weight: 300;
 }
 .select-container .select-container__control {
-  background-color: #4a4a4a;
-  color: white;
-  cursor: pointer;
+    background-color: #4a4a4a;
+    color: white;
+    cursor: pointer;
 }
 
 .select-container .select-container__menu {
-  background-color: #4a4a4a;
-  color: white;
-  cursor: pointer;
+    background-color: #4a4a4a;
+    color: white;
+    cursor: pointer;
 }
 
 .select-container .select-container__option {
-  background-color: #4a4a4a;
-  color: white;
-  cursor: pointer;
+    background-color: #4a4a4a;
+    color: white;
+    cursor: pointer;
 }
 
 .select-container .select-container__option--is-focused {
-  background-color: #777;
+    background-color: #777;
 }
 
 .select-container .select-container__single-value {
-  color: white;
+    color: white;
 }
 
 .image-drop {
-  width: 180px;
+    width: 180px;
 }
 
 .upload-btn {
-  background-color: #d9a460;
-  border: 2px solid;
-  border-color: #cec3b3;
-  padding: 8px 5px;
-  cursor: pointer;
+    background-color: #d9a460;
+    border: 2px solid;
+    border-color: #cec3b3;
+    padding: 8px 5px;
+    cursor: pointer;
 }
 
 .upload-btn:active {
-  background-color: #6f634b;
+    background-color: #6f634b;
 }

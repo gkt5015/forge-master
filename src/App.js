@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ForgeMatrix from './components/ForgeMatrix';
 import AddEditArea from './components/AddEditArea';
 import LoginSignUpForm from './components/LoginSignUpForm';
+import LogoutButton from './components/LogoutButton';
 import controller from './controllers/controller';
 import datastore from './datastore/datastore';
 import { Provider } from 'mobx-react';
@@ -20,6 +20,7 @@ class App extends Component {
             <Provider store={this.ds}>
                 <div className="App container">
                     <div className="main-title">The Forge Master</div>
+                    <LogoutButton />
                     <LoginSignUpForm controller={this.controller} />
                     <AddEditArea />
                     <ForgeMatrix />

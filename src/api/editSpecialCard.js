@@ -1,7 +1,9 @@
 import firebase from './firebase.js';
 
-const editSpecialCard = specialCard => {
-    const specialCardRef = firebase.database().ref('specialCards');
+const editSpecialCard = (specialCard, user) => {
+    const specialCardRef = firebase
+        .database()
+        .ref(`users/${user.uid}/specialCards`);
     const updates = {
         [specialCard.id]: specialCard
     };
