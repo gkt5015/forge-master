@@ -30,7 +30,10 @@ class LoginSignUpForm extends React.Component {
         return (
             <div className="login-sign-form">
                 {this.state.login ? (
-                    <LoginForm toggleRegisterLogin={this.toggleRegisterLogin} />
+                    <LoginForm
+                        controller={this.controller}
+                        toggleRegisterLogin={this.toggleRegisterLogin}
+                    />
                 ) : (
                     <Register
                         controller={this.controller}

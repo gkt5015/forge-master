@@ -168,6 +168,12 @@
     text-align: center;
 }
 
+.logout-btn {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
 .special-card-preview img {
     align-self: flex-start;
     height: 330px;

@@ -2,6 +2,9 @@ import firebase from '../api/firebase.js';
 import forOwn from 'lodash/forOwn';
 import keyBy from 'lodash/keyBy';
 import sortBy from 'lodash/sortBy';
+import registerWithEmail from '../api/registerWithEmail.js';
+import loginWithEmail from '../api/loginWithEmail.js';
+import firebaseLogout from '../api/firebaseLogout.js';
 
 export default class controller {
     constructor(ds) {
@@ -12,7 +15,7 @@ export default class controller {
     }
 
     downloadSpecialCards = user => {
-        const { uid } = user;
+        const { uid } = user.user;
         const specialCardsRef = firebase
             .database()
             .ref(`users/${uid}/specialCards`);
@@ -39,7 +42,7 @@ export default class controller {
     };
 
     downloadForgeCards = user => {
-        const { uid } = user;
+        const { uid } = user.user;
         const forgeCardsRef = firebase
             .database()
             .ref(`users/${uid}/forgeCards`);
@@ -66,37 +69,17 @@ export default class controller {
 
     handleRegister = payload => {
         console.log('call register API');
-        return new Promise((resolve, reject) => {
-            if (Math.random() > 0.99) {
-                const user = { name: 'Gah', uid: payload.email.split('@')[0] };
-                resolve(user);
-            } else {
-                reject(new Error('Failed to Register'));
-            }
-        });
+        return registerWithEmail(payload.email, payload.password);
     };
 
-    handleLogin = user => {
+    handleLogin = payload => {
         console.log('call register API');
-        return new Promise((resolve, reject) => {
-            if (Math.random() > 0.1) {
-                const user = { name: 'Gah' };
-                resolve(user);
-            } else {
-                reject(new Error('Failed to Register'));
-            }
-        });
+        return loginWithEmail(payload.email, payload.password);
     };
 
     handleLogout = () => {
         console.log('call logout API');
-        return new Promise((resolve, reject) => {
-            if (Math.random() > 0.1) {
-                this.ds.toggleLogout();
-            } else {
-                reject(new Error('Failed to Logout'));
-            }
-        });
+        return firebaseLogout().then(this.ds.toggleLogout());
     };
 
     init() {

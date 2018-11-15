@@ -21,11 +21,11 @@ const formEnhancer = withFormik({
         };
         const { toggleLogin } = props.store;
         props.controller
-            .handleRegister(payload)
+            .handleLogin(payload)
             .then(user => {
                 console.log('api has been called successfully to register');
                 toggleLogin(user);
-                props.controller.init(user);
+                props.controller.init();
                 setSubmitting(false);
                 resetForm({ email: '', password: '' });
             })
@@ -55,6 +55,7 @@ const LoginForm = props => {
                     className="login-email"
                     placeholder="E-mail"
                     name="email"
+                    type="email"
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -63,6 +64,7 @@ const LoginForm = props => {
                     className="login-password"
                     placeholder="Password"
                     name="password"
+                    type="password"
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}

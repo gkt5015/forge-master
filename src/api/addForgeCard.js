@@ -3,7 +3,7 @@ import firebase from './firebase.js';
 const addForgeCard = (forgeCard, user) => {
     const forgeCardRef = firebase
         .database()
-        .ref(`users/${user.uid}/forgeCards`);
+        .ref(`users/${user.user.uid}/forgeCards`);
     return forgeCardRef.push(forgeCard);
 };
 

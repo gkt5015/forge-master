@@ -6,7 +6,11 @@ const LogoutButton = props => {
     if (!store.user) {
         return null;
     }
-    return <button onClick={store.toggleLogout}>Log-Out</button>;
+    return (
+        <button className="logout-btn warn-btn" onClick={store.toggleLogout}>
+            Log-Out
+        </button>
+    );
 };
 
 export default inject('store')(observer(LogoutButton));

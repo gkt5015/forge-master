@@ -3,7 +3,7 @@ import firebase from './firebase.js';
 const addSpecialCard = (specialCard, user) => {
     const specialCardRef = firebase
         .database()
-        .ref(`users/${user.uid}/specialCards`);
+        .ref(`users/${user.user.uid}/specialCards`);
     return specialCardRef.push(specialCard);
 };
 
