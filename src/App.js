@@ -20,7 +20,7 @@ class App extends Component {
             <Provider store={this.ds}>
                 <div className="App container">
                     <div className="main-title">The Forge Master</div>
-                    <LogoutButton />
+                    <LogoutButton controller={this.controller}/>
                     <LoginSignUpForm controller={this.controller} />
                     <AddEditArea />
                     <ForgeMatrix />
